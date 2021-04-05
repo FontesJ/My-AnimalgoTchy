@@ -8,18 +8,32 @@ social = 50
 moedas = 200
 estoque = {"alimentos":{"agua":5, "lanche":2, "frango":0}, "cuidados": {"mascara":10, "alquingel":0}}
 
-atividade = fn.menu()aaaaa
+atividade = fn.menu(moedas)
 #1.Alimentar
 # 2.Armário
 # 3.loja
 # 4.Médico
 # 5.Dormir
 # 6.Passear
+# 7. Status
+
 if atividade == "1":
-    fn.alimentar(fome, estoque)
+    fome, estoque = fn.alimentar(fome, estoque, moedas)
+
 elif atividade == "2":
     fn.armario(estoque)
+
 elif atividade == "3":
-    fn.comprar(moedas, estoque)
+    moedas, estoque = fn.comprar(moedas, estoque)
+
 elif atividade == "4":
-    fn.irAoMedico(saude, moedas)
+    saude, moedas = fn.irAoMedico(saude, moedas)
+
+elif atividade == "5":
+     saude, fome, social = fn.dormir(saude, fome, social, moedas)
+
+elif atividade == "6":
+    print("Passear")
+
+elif atividade == "7":
+    fn.status(saude, fome, social, risco, vacina, moedas)
